@@ -17,11 +17,17 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
 	resolve: {
-		extensions: ['.js'],
+		extensions: ['.js', '.jsx', '.css', '.less', '.html'],
 		modules: [
 			path.join(__dirname, 'src'),
 			'node_modules'
-		]
+		],
+		alias: {
+	    'utils': resolve('src/utils'),
+	    'assets': resolve('src/assets'),
+	    'pages': resolve('src/pages'),
+	    'components': resolve('src/components')
+	  },
 	},
 	module: {
 		rules: [

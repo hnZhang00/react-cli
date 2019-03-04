@@ -29,82 +29,47 @@ module.exports = merge(baseWebpackConfig, {
   },
   module: {
   	rules: [
-			// {
-			// 	test:/\.css$/,
-			// 	exclude: /node_modules/,
-   //      use: [
-   //      	{
-			// 	    loader: 'css-loader',
-			// 	    options: {
-			// 	      sourceMap: true,
-   //          	modules: true 
-			// 	    }
-			// 	  },
-   //      	{
-			// 	    loader: 'postcss-loader',
-			// 	    options: {
-			// 	      sourceMap: true,
-   //          	modules: true 
-			// 	    }
-			// 	  }
-   //      ]
-	  //   },
-	  //   {
-   //      test: /\.less$/,
-   //      exclude: /node_modules/,
-   //      use: [
-   //        'style-loader',
-   //      	{
-   //          loader: 'css-loader',
-   //          options: { 
-   //          	sourceMap: true,
-   //          	modules: true 
-   //          }
-	  //       }, 
-   //      	{
-			// 	    loader: 'less-loader',
-			// 	    options: {
-			// 	      sourceMap: true,
-   //          	modules: true 
-			// 	    }
-			// 	  }
-   //      ]
-   //    }
-   		{ //antd样式处理
-        test:/\.css$/,
-        exclude: /src/,
-        use:[
-          { loader: "style-loader",},
-          {
-              loader: "css-loader",
-          }
+			{
+				test:/\.css$/,
+				exclude: /node_modules/,
+        use: [
+        	{
+				    loader: 'css-loader',
+				    options: {
+				      sourceMap: true,
+            	modules: true 
+				    }
+				  },
+        	{
+				    loader: 'postcss-loader',
+				    options: {
+				      sourceMap: true,
+            	modules: true 
+				    }
+				  }
         ]
 	    },
 	    {
-        test: /\.(css)$/,
+        test: /\.less$/,
         exclude: /node_modules/,
         use: [
-            'style-loader',
-            {
-                loader: 'css-loader',
-                options: { modules: true }
-            },
-            'postcss-loader'
-        ]
-    },
-    {
-        test: /\.(less)$/,
-        exclude: /node_modules/,
-        use: [{
-            loader: 'style-loader' // creates style nodes from JS strings
-        }, {
+          'style-loader',
+        	{
             loader: 'css-loader',
-            options: { modules: true }
-             // translates CSS into CommonJS
-        }, {
-            loader: 'less-loader' // compiles Less to CSS
-        }]
-    }
+            options: { 
+            	sourceMap: true,
+            	modules: true 
+            }
+	        }, 
+        	{
+				    loader: 'less-loader',
+				    options: {
+				      sourceMap: true,
+            	modules: true 
+				    }
+				  }
+        ]
+      }
   	]
   },
 	plugins: [

@@ -1,11 +1,7 @@
-import './assets/style/index.less';
-import test from './utils/test';
-
-const a = {id: 1}
-const b = {...a, test: 1}
-console.log('index.js')
-console.log(a, b)
+import 'assets/style/index.less';
 
 if (module.hot) {
   module.hot.accept()
 }
+
+import App from './pages/Home/IndexPage'
