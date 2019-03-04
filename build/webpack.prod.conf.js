@@ -16,6 +16,36 @@ var webpackConfig = merge(baseWebpackConfig, {
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
+  module: {
+  	rules: [
+  		{
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader', 
+          {
+          	loader: 'css-loader', 
+          	options: { modules: true }
+          }, 
+          'less-loader'
+        ]
+	    },
+	    {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: { modules: true }
+            },
+            'postcss-loader'
+          ]
+        })
+	    }
+  	]
+  },
 	plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -24,7 +54,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
 		new CleanWebpackPlugin(['dist']),
 		new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css'),
+      filename: utils.assetsPath('css/[name].[chunkhash].css'),
       allChunks: true,
     }),
     // generate dist index.html with correct asset hash for caching.
