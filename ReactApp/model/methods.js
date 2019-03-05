@@ -2,7 +2,7 @@ import invariant from 'invariant';
 import React from 'react';
 import { call } from 'redux-saga/effects';
 import { connect } from 'react-redux';
-import sagaWrap from './sagaWrap';
+import { wrapSaga } from './saga';
 
 export default function(store, sagaMiddleware, config) {
   return {
@@ -20,7 +20,7 @@ export default function(store, sagaMiddleware, config) {
     invariant(typeof(namespace) === 'string', `Model.run方法第一个参数应该传入namespace`)
     invariant(typeof(sageEffect) === 'function', `run方法应该传入一个generator`)
 
-    sagaMiddleware.run(sagaWrap(namespace, store, config, sageEffect));
+    sagaMiddleware.run(wrapSaga(namespace, store, config, sageEffect));
   }
 
   function fetch() { // 如果没有实现的话，就会报错
