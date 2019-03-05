@@ -1,7 +1,10 @@
-import 'assets/style/index.less';
 
 if (module.hot) {
   module.hot.accept()
 }
 
-import App from './pages/Home/IndexPage'
+import ReactApp from 'ReactApp';
+import routes from './router';
+// import 'assets/style/index.less';
+
+ReactApp.start(routes, '#root');

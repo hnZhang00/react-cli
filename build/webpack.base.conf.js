@@ -23,6 +23,7 @@ module.exports = {
 			'node_modules'
 		],
 		alias: {
+	    'ReactApp': resolve('ReactApp'),
 	    'utils': resolve('src/utils'),
 	    'assets': resolve('src/assets'),
 	    'pages': resolve('src/pages'),
@@ -34,7 +35,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('ReactApp'), resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

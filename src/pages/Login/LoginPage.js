@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const IndexPage = () => {
+const LoginPage = () => {
   return (
     <div>
-      <p>React here!</p>
+      <p>Login</p>
     </div>
   );
 };
-export default IndexPage;
+export default LoginPage;
